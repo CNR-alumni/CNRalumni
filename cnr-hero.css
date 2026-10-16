@@ -12,3 +12,24 @@
 @keyframes crest-arrive{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
 @media(max-width:700px){.art-crest{width:min(68vw,240px);padding:12px}.art-circle:before{inset:13px}.art-circle:after{inset:25px}.note-top{right:0}.note-bottom{left:0}}
 @media(prefers-reduced-motion:reduce){.art-crest{animation:none!important}}
+
+/* Two-image hero carousel — progressive enhancement with existing-crest fallback. */
+.hero-art{isolation:isolate}
+.hero-fallback{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .65s ease}
+.hero-carousel{position:absolute;inset:0;opacity:0;visibility:hidden;overflow:hidden;border-radius:30px;border:1px solid rgba(255,255,255,.8);background:radial-gradient(circle at 23% 20%,rgba(255,255,255,.95),transparent 45%),linear-gradient(135deg,rgba(213,234,255,.85),rgba(255,245,222,.76));box-shadow:0 25px 75px rgba(18,57,100,.13);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:opacity .6s ease}
+.has-carousel .hero-carousel{opacity:1;visibility:visible}
+.has-carousel .hero-fallback{opacity:0;visibility:hidden;pointer-events:none}
+.hero-slide{position:absolute;inset:18px 28px 61px;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:scale(.975);transition:opacity .8s ease,transform .9s ease,visibility 0s linear .8s}
+.hero-slide.is-active{opacity:1;visibility:visible;transform:scale(1);transition:opacity .8s ease,transform .9s ease,visibility 0s}
+.hero-slide img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 13px 23px rgba(30,63,94,.1))}
+.hero-slide--monk{inset:12px 28px 60px}
+.hero-slide--monk img{border-radius:9px;mix-blend-mode:multiply}
+.hero-controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:2;padding:5px 8px;background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.9);border-radius:30px;box-shadow:0 8px 25px rgba(20,51,83,.11);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+.hero-arrow{border:0;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;font:500 24px/1 Arial,sans-serif;color:#1a4c80;background:rgba(221,236,250,.9);cursor:pointer}
+.hero-arrow:hover,.hero-arrow:focus-visible{background:#d7e6f9}
+.hero-dots{display:flex;align-items:center;gap:5px}
+.hero-dot{padding:0;border:0;border-radius:50%;width:10px;height:10px;background:#bacada;cursor:pointer}
+.hero-dot.is-active{background:#be9550;width:21px;border-radius:12px}
+.has-carousel .floating-note{pointer-events:none}
+@media(max-width:700px){.hero-carousel{border-radius:22px}.hero-slide{inset:17px 20px 58px}.hero-slide--monk{inset:12px 19px 58px}.hero-controls{bottom:10px}.hero-arrow{width:36px;height:36px}.note-top{top:8px;right:-2px}.note-bottom{bottom:2px;left:-2px}}
+@media(prefers-reduced-motion:reduce){.hero-slide,.hero-slide.is-active,.hero-carousel,.hero-fallback{transition:none!important;transform:none!important}}
