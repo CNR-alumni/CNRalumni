@@ -44,7 +44,7 @@ footer .brand-caption{color:#aebdce}
 <body>
 <a class="skip-link" href="#main">ข้ามไปเนื้อหาหลัก</a>
 <header class="site-header"><nav class="nav container" aria-label="เมนูหลัก">
-<a class="brand" href="#home" aria-label="CNR Alumni หน้าแรก"><span class="brand-icon"><img src="https://www.chinorot.ac.th/public/images/logo.png" alt="" width="43" height="43" loading="eager"></span><span><span class="brand-name">CNR ALUMNI</span><span class="brand-caption" style="display:block">CHINOROT WITTAYALAI</span></span></a>
+<a class="brand" href="#home" aria-label="CNR Alumni หน้าแรก"><span class="brand-icon"><img src="https://www.chinorot.ac.th/public/images/logo.png" data-alumni-crest="assets/alumni-logo.avif" alt="" width="43" height="43" loading="eager"></span><span><span class="brand-name">CNR ALUMNI</span><span class="brand-caption" style="display:block">CHINOROT WITTAYALAI</span></span></a>
 <div class="nav-links" id="navLinks"><a href="#home">หน้าแรก</a><a href="#news">ข่าวสาร</a><a href="#events">กิจกรรม</a><a href="#stories">เรื่องราว</a><a href="#generations">ค้นหารุ่น</a></div>
 <a class="nav-join" href="#join">เข้าร่วมชุมชน ↗</a><button class="menu-toggle" aria-label="เปิดเมนู" aria-controls="navLinks" aria-expanded="false" id="menuToggle">☰</button>
 </nav></header>
@@ -55,7 +55,15 @@ footer .brand-caption{color:#aebdce}
 <p class="hero-copy">ไม่ว่าจะจบไปนานแค่ไหน เรื่องราวของเรายังเชื่อมถึงกันเสมอ กลับมาเจอเพื่อน แชร์ความทรงจำ และส่งต่อโอกาสให้ชาวชิโนรสรุ่นต่อไป</p>
 <div class="hero-actions"><a class="button-primary" href="#join">🎓 กลับมาเป็นส่วนหนึ่งของเรา <span aria-hidden="true">↗</span></a><a class="button-outline" href="#generations">สำรวจรุ่นของคุณ →</a></div>
 <div class="hero-meta"><div class="avatar-stack" aria-hidden="true"><span>C</span><span>N</span><span>R</span></div><span>One school. Every generation.<br>เรื่องราวของเรา ไม่มีวันหมดอายุ</span></div>
-</div><div class="hero-art" role="img" aria-label="ตราสัญลักษณ์โรงเรียนชิโนรสวิทยาลัย พญานาคห้าเศียร"><div class="art-circle"></div><div class="art-crest"><img src="https://www.chinorot.ac.th/public/images/logo.png" alt="ตราสัญลักษณ์โรงเรียนชิโนรสวิทยาลัย" width="310" height="310" fetchpriority="high"></div><div class="floating-note note-top"><span class="star">✳</span><strong>Every generation</strong>หนึ่งสายใยที่เชื่อมถึงกัน</div><div class="floating-note note-bottom"><strong>Since then, still us. ♡</strong>ชิโนรสในทุกความทรงจำ</div></div></div></section>
+</div><div class="hero-art" id="cnrHero" aria-label="ภาพเอกลักษณ์สมาคมศิษย์เก่าชิโนรสวิทยาลัย">
+<div class="hero-fallback"><div class="art-circle"></div><div class="art-crest"><img src="https://www.chinorot.ac.th/public/images/logo.png" alt="ตราโรงเรียนชิโนรสวิทยาลัย" width="310" height="310" fetchpriority="high"></div></div>
+<div class="hero-carousel" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="ภาพสัญลักษณ์ศิษย์เก่าชิโนรส">
+ <div class="hero-slide is-active" data-label="โลโก้สมาคมศิษย์เก่า" role="group" aria-roledescription="slide" aria-label="ภาพที่ 1 จาก 2"><img src="assets/alumni-logo.avif" alt="ตราสมาคมศิษย์เก่าชิโนรสวิทยาลัย รูปพญานาคห้าเศียร" width="300" height="300" decoding="async"></div>
+ <div class="hero-slide hero-slide--monk" data-label="พระอนุสาวรีย์" role="group" aria-roledescription="slide" aria-label="ภาพที่ 2 จาก 2" aria-hidden="true"><img src="assets/hero-monk.avif" alt="พระอนุสาวรีย์สมเด็จพระมหาสมณเจ้า กรมพระปรมานุชิตชิโนรส" width="330" height="587" decoding="async"></div>
+ <div class="hero-controls" aria-label="ควบคุมสไลด์"><button class="hero-arrow" id="heroPrev" type="button" aria-label="ภาพก่อนหน้า">‹</button><div class="hero-dots"><button type="button" class="hero-dot is-active" data-index="0" aria-label="แสดงภาพโลโก้" aria-current="true"></button><button type="button" class="hero-dot" data-index="1" aria-label="แสดงรูปพระ"></button></div><button class="hero-arrow" id="heroNext" type="button" aria-label="ภาพถัดไป">›</button></div>
+</div>
+<div class="floating-note note-top"><span class="star">✳</span><strong>Every generation</strong>หนึ่งสายใยที่เชื่อมถึงกัน</div><div class="floating-note note-bottom"><strong>Since then, still us. ♡</strong>ชิโนรสในทุกความทรงจำ</div>
+</div></div></section>
 <div class="container quick-links" aria-label="ทางลัด"><a class="quick-card" href="#news"><span class="quick-icon">✉️</span><span><strong>อัปเดตข่าวสาร</strong><small>ไม่พลาดเรื่องราวล่าสุด</small></span><span class="arrow">↗</span></a><a class="quick-card" href="#events"><span class="quick-icon">📅</span><span><strong>ปฏิทินกิจกรรม</strong><small>กลับมาเจอกันอีกครั้ง</small></span><span class="arrow">↗</span></a><a class="quick-card" href="#generations"><span class="quick-icon">🎓</span><span><strong>ย้อนวันวาน</strong><small>ค้นหาความทรงจำของรุ่นคุณ</small></span><span class="arrow">↗</span></a></div>
 <section class="section" id="news"><div class="container"><div class="section-heading"><div><span class="eyebrow">WHAT'S HAPPENING</span><h2>เรื่องราวที่อยากแบ่งปัน</h2></div><p>เรื่องเล่า ความเคลื่อนไหว และข่าวสารจากบ้านชิโนรส <strong>ตัวอย่างเนื้อหาสำหรับการออกแบบ</strong> รออัปเดตข่าวจริงจากสมาคม</p></div><div class="news-grid">
 <article class="story story-one"><div class="story-content"><span class="story-tag">CNR STORIES</span><h3>บางความทรงจำผ่านไปกี่ปีก็ยังชัดเจน เหมือนเพิ่งเจอกันเมื่อวาน</h3><p>เรื่องเล่าจากชาวชิโนรส · ตัวอย่างบทความ</p></div></article>
@@ -88,4 +96,5 @@ document.getElementById('prevMonth').addEventListener('click',()=>{viewMonth--;i
 function resetCalendarNote(){document.getElementById('calendarNote').textContent='เลือกวันในปฏิทินเพื่อดูข้อมูล'}
 })();
 </script>
+<script src="cnr-carousel.js?v=20261016" defer></script>
 </body></html>
