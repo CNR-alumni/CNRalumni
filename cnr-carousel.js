@@ -1,23 +1,43 @@
-/* Enable the carousel only when BOTH user-provided images are available. */
+/* Load both supplied images before enabling the orbit. */
 (()=>{
 const hero=document.getElementById('cnrHero'),carousel=document.getElementById('heroCarousel');
 if(!hero||!carousel)return;
 const slides=Array.from(carousel.querySelectorAll('.hero-slide'));
-const dots=Array.from(carousel.querySelectorAll('.hero-dot'));
-const filenames=slides.map(slide=>slide.querySelector('img').getAttribute('src'));
-const check=url=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(true);img.onerror=reject;img.src=url});
-const crest=document.querySelector('.brand-icon img[data-alumni-crest]');
-if(crest){check(crest.dataset.alumniCrest).then(()=>{crest.src=crest.dataset.alumniCrest}).catch(()=>{});}
-Promise.all(filenames.map(check)).then(()=>{
- hero.classList.add('has-carousel');let index=0,timer,turn=0;const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const show=next=>{const target=(next+slides.length)%slides.length;if(target!==index){turn+=180;carousel.style.setProperty('--orbit-turn',turn+'deg')}index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));slide.querySelector('img').tabIndex=active?0:-1});dots.forEach((dot,i)=>{const active=i===index;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current')})};
- const stop=()=>clearInterval(timer);const start=()=>{stop();if(!reduced)timer=setInterval(()=>show(index+1),3500)};
- document.getElementById('heroPrev')?.addEventListener('click',()=>{show(index-1);start()});
- document.getElementById('heroNext')?.addEventListener('click',()=>{show(index+1);start()});
- dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start()}));
- carousel.addEventListener('mouseenter',stop);carousel.addEventListener('mouseleave',start);
- carousel.addEventListener('focusin',stop);carousel.addEventListener('focusout',e=>{if(!carousel.contains(e.relatedTarget))start()});
+const check=url=>new Promise((resolve,reject)=>{const img=new Image();img.onload=resolve;img.onerror=reject;img.src=url});
+Promise.all(slides.map(slide=>check(slide.querySelector('img').src))).then(()=>{
+ hero.classList.add('has-carousel');
+ let index=0,timer,turn=0,gesture=null,hovered=false;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const show=next=>{
+  const target=(next+slides.length)%slides.length;
+  if(target!==index){turn+=next>index?180:-180;carousel.style.setProperty('--orbit-turn',turn+'deg')}
+  index=target;
+  slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));slide.querySelector('img').draggable=false});
+ };
+ const stop=()=>clearInterval(timer);
+ const start=()=>{stop();if(!reduced&&!document.hidden&&!hovered&&!gesture&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),3500)};
+ const finish=()=>{gesture=null;carousel.classList.remove('is-dragging');start()};
+ carousel.addEventListener('pointerdown',e=>{
+  if(!e.isPrimary||(e.pointerType==='mouse'&&e.button!==0))return;
+  gesture={id:e.pointerId,x:e.clientX,y:e.clientY};stop();carousel.classList.add('is-dragging');carousel.setPointerCapture(e.pointerId);
+ });
+ carousel.addEventListener('pointerup',e=>{
+  if(!gesture||gesture.id!==e.pointerId)return;
+  const dx=e.clientX-gesture.x,dy=e.clientY-gesture.y;
+  if(Math.abs(dx)>=40&&Math.abs(dx)>Math.abs(dy)*1.25)show(index+(dx<0?1:-1));
+  finish();
+ });
+ carousel.addEventListener('pointercancel',finish);
+ carousel.addEventListener('lostpointercapture',()=>{if(gesture)finish()});
+ carousel.addEventListener('keydown',e=>{
+  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+  e.preventDefault();stop();show(index+(e.key==='ArrowRight'?1:-1));
+ });
+ carousel.addEventListener('mouseenter',()=>{hovered=true;stop()});
+ carousel.addEventListener('mouseleave',()=>{hovered=false;start()});
+ carousel.addEventListener('focusin',stop);
+ carousel.addEventListener('focusout',e=>{if(!carousel.contains(e.relatedTarget))start()});
  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
  show(0);start();
-}).catch(()=>{/* Keep the original functioning school crest until both assets are uploaded. */});
+}).catch(()=>{/* Retain the crest fallback if either image cannot load. */});
 })();

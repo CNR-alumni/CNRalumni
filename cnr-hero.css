@@ -27,15 +27,15 @@
 .hero-slide.is-active{opacity:1;transform:scale(1);z-index:2}
 .hero-slide img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;border-radius:0;transform:rotate(calc(-1 * var(--orbit-turn,0deg)));transition:transform 1s cubic-bezier(.45,0,.2,1);mix-blend-mode:normal}
 .hero-slide--monk img{border-radius:0}
-.hero-controls{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:4;padding:5px 8px;background:linear-gradient(135deg,#ffffff80,#e4f4ff40);border:1px solid #ffffffc9;border-radius:30px;box-shadow:0 8px 25px #14335314,inset 1px 2px 2px #fff,inset -1px -2px 3px #ffffff80;backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%)}
-.hero-arrow{border:0;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;font:500 24px/1 Arial,sans-serif;color:#1a4c80;background:#ddecfa;cursor:pointer}
-.hero-arrow:hover,.hero-arrow:focus-visible{background:#c7e0f6}
-.hero-dots{display:flex;align-items:center;gap:6px}
-.hero-dot{padding:0;border:0;border-radius:50%;width:10px;height:10px;background:#bacada;cursor:pointer}
-.hero-dot.is-active{background:#be9550;width:21px;border-radius:12px}
 .has-carousel .floating-note{pointer-events:none}
 .has-carousel .note-top{top:20px;right:-5px}
 .has-carousel .note-bottom{bottom:46px;left:-8px}
 @media(min-width:701px) and (max-width:950px){.hero-orbit{width:330px;margin-left:-165px}}
-@media(max-width:700px){.hero-art{height:390px}.hero-orbit{width:min(88%,330px);margin-left:max(-44%,-165px)}.hero-slide{padding:21px}.hero-slide:before{inset:4px;padding:6px}.hero-controls{bottom:0}.has-carousel .note-top{top:0;right:0}.has-carousel .note-bottom{bottom:53px;left:0}}
+@media(max-width:700px){.hero-art{height:390px}.hero-orbit{width:min(88%,330px);margin-left:max(-44%,-165px)}.hero-slide{padding:21px}.hero-slide:before{inset:4px;padding:6px}.has-carousel .note-top{top:0;right:0}.has-carousel .note-bottom{bottom:53px;left:0}}
 @media(prefers-reduced-motion:reduce){.hero-orbit,.hero-slide,.hero-slide img{transition:none!important}}
+
+/* Horizontal gestures switch images; vertical scroll and pinch zoom remain native. */
+.hero-carousel{touch-action:pan-y pinch-zoom;cursor:grab;-webkit-user-select:none;user-select:none}
+.hero-carousel.is-dragging{cursor:grabbing}
+.hero-carousel img{-webkit-user-drag:none}
+.hero-carousel:focus-visible{outline:2px solid #2d70a8;outline-offset:6px;border-radius:32px}
