@@ -20,10 +20,11 @@
 .has-carousel .hero-carousel{opacity:1;visibility:visible}
 .has-carousel .hero-fallback{display:none}
 .hero-orbit{position:absolute;width:min(100%,440px);aspect-ratio:1;left:50%;top:0;margin-left:max(-50%,-220px);transform:rotate(var(--orbit-turn,0deg));transition:transform 1s cubic-bezier(.45,0,.2,1);isolation:isolate}
-.hero-slide{position:absolute;inset:auto;left:0;top:24%;width:76%;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;padding:26px;background:radial-gradient(ellipse at 24% 12%,#ffffff82,transparent 48%),linear-gradient(145deg,#ffffff38,#c8eaff24 55%,#ffedc72b);border:1px solid #ffffffc9;box-shadow:0 22px 48px #19457024,0 4px 12px #19457012,inset 2px 3px 4px #fffffff2,inset -2px -3px 5px #ffffffb3,inset 9px 10px 22px #ffffff59,inset -8px -9px 18px #437ca22b;backdrop-filter:blur(18px) saturate(165%);-webkit-backdrop-filter:blur(18px) saturate(165%);opacity:.82;visibility:visible;transform:scale(.69);transition:transform 1s cubic-bezier(.45,0,.2,1),opacity 1s;z-index:1}
+/* Same clear surface and fine reflective edges as the Liquid Glass buttons. */
+.hero-slide{position:absolute;inset:auto;left:0;top:24%;width:76%;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;padding:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.62);box-shadow:0 3px 9px rgba(12,42,76,.08),0 18px 44px rgba(25,62,110,.10),inset 3px 3px 1px -2px rgba(255,255,255,.95),inset -3px -3px 1px -2px rgba(40,83,123,.26),inset 0 0 10px 3px rgba(255,255,255,.2);backdrop-filter:blur(12px) saturate(155%);-webkit-backdrop-filter:blur(12px) saturate(155%);opacity:.82;visibility:visible;transform:scale(.69);transition:transform 1s cubic-bezier(.45,0,.2,1),opacity 1s;z-index:1}
 .hero-slide:nth-child(2){left:24%;top:0}
-.hero-slide:before{content:"";position:absolute;inset:4px;border:1px solid #ffffff80;border-radius:50%;padding:8px;background:conic-gradient(from 25deg,#fff0 0deg,#fffffff2 48deg,#bfebff80 88deg,#fff0 130deg,#fff0 172deg,#fff 210deg,#e6c98675 255deg,#fff0 300deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.hero-slide:after{content:"";position:absolute;left:17%;top:6%;width:47%;height:22%;border-radius:50%;background:linear-gradient(160deg,#ffffffd9,#ffffff15 58%,transparent);filter:blur(1px);transform:rotate(-32deg);pointer-events:none}
+.hero-slide:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.06) 48%,rgba(180,216,247,.10));box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 -1px 1px rgba(255,255,255,.4)}
+.hero-slide:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse at 29% 11%,rgba(255,255,255,.65),transparent 40%),linear-gradient(165deg,rgba(255,255,255,.3),transparent 35%,transparent 70%,rgba(255,255,255,.28));opacity:.5;box-shadow:inset 1px 1px 2px rgba(255,255,255,.8),inset -1px -1px 2px rgba(255,255,255,.4)}
 .hero-slide.is-active{opacity:1;transform:scale(1);z-index:2}
 .hero-slide img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;border-radius:0;transform:rotate(calc(-1 * var(--orbit-turn,0deg)));transition:transform 1s cubic-bezier(.45,0,.2,1);mix-blend-mode:normal}
 .hero-slide--monk img{border-radius:0}
@@ -31,7 +32,7 @@
 .has-carousel .note-top{top:20px;right:-5px}
 .has-carousel .note-bottom{bottom:46px;left:-8px}
 @media(min-width:701px) and (max-width:950px){.hero-orbit{width:330px;margin-left:-165px}}
-@media(max-width:700px){.hero-art{height:390px}.hero-orbit{width:min(88%,330px);margin-left:max(-44%,-165px)}.hero-slide{padding:21px}.hero-slide:before{inset:4px;padding:6px}.has-carousel .note-top{top:0;right:0}.has-carousel .note-bottom{bottom:53px;left:0}}
+@media(max-width:700px){.hero-art{height:390px}.hero-orbit{width:min(88%,330px);margin-left:max(-44%,-165px)}.hero-slide{padding:21px}.has-carousel .note-top{top:0;right:0}.has-carousel .note-bottom{bottom:53px;left:0}}
 @media(prefers-reduced-motion:reduce){.hero-orbit,.hero-slide,.hero-slide img{transition:none!important}}
 
 /* Horizontal gestures switch images; vertical scroll and pinch zoom remain native. */
@@ -39,3 +40,7 @@
 .hero-carousel.is-dragging{cursor:grabbing}
 .hero-carousel img{-webkit-user-drag:none}
 .hero-carousel:focus-visible{outline:2px solid #2d70a8;outline-offset:6px;border-radius:32px}
+
+@supports not (backdrop-filter:blur(1px)){
+ .hero-slide{background:rgba(232,243,255,.82)}
+}
