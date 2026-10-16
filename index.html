@@ -39,7 +39,7 @@ footer .brand-caption{color:#aebdce}
 @media(max-width:700px){.calendar-card{padding:18px}.floating-note{font-size:12px}.brand{gap:8px}.brand-name{font-size:17px}.hero-art{height:330px}.footer-links a{padding:5px}}
 </style>
 <link rel="stylesheet" href="cnr-theme.css?v=20261016">
-<link rel="stylesheet" href="cnr-hero.css?v=20261016">
+<link rel="stylesheet" href="cnr-hero.css?v=20261016-bubbles">
 </head>
 <body>
 <a class="skip-link" href="#main">ข้ามไปเนื้อหาหลัก</a>
@@ -58,8 +58,10 @@ footer .brand-caption{color:#aebdce}
 </div><div class="hero-art" id="cnrHero" aria-label="ภาพเอกลักษณ์สมาคมศิษย์เก่าชิโนรสวิทยาลัย">
 <div class="hero-fallback"><div class="art-circle"></div><div class="art-crest"><img src="assets/alumni-logo.avif" alt="ตราโรงเรียนชิโนรสวิทยาลัย" width="310" height="310" fetchpriority="high"></div></div>
 <div class="hero-carousel" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="ภาพสัญลักษณ์ศิษย์เก่าชิโนรส">
+ <div class="hero-orbit">
  <div class="hero-slide is-active" data-label="โลโก้สมาคมศิษย์เก่า" role="group" aria-roledescription="slide" aria-label="ภาพที่ 1 จาก 2"><img src="assets/alumni-logo.avif" alt="ตราสมาคมศิษย์เก่าชิโนรสวิทยาลัย รูปพญานาคห้าเศียร" width="447" height="447" fetchpriority="high" decoding="async"></div>
  <div class="hero-slide hero-slide--monk" data-label="พระอนุสาวรีย์" role="group" aria-roledescription="slide" aria-label="ภาพที่ 2 จาก 2" aria-hidden="true"><img src="assets/hero-monk.avif" alt="พระอนุสาวรีย์สมเด็จพระมหาสมณเจ้า กรมพระปรมานุชิตชิโนรส" width="864" height="1536" decoding="async"></div>
+ </div>
  <div class="hero-controls" aria-label="ควบคุมสไลด์"><button class="hero-arrow" id="heroPrev" type="button" aria-label="ภาพก่อนหน้า">‹</button><div class="hero-dots"><button type="button" class="hero-dot is-active" data-index="0" aria-label="แสดงภาพโลโก้" aria-current="true"></button><button type="button" class="hero-dot" data-index="1" aria-label="แสดงรูปพระ"></button></div><button class="hero-arrow" id="heroNext" type="button" aria-label="ภาพถัดไป">›</button></div>
 </div>
 <div class="floating-note note-top"><span class="star">✳</span><strong>Every generation</strong>หนึ่งสายใยที่เชื่อมถึงกัน</div><div class="floating-note note-bottom"><strong>Since then, still us. ♡</strong>ชิโนรสในทุกความทรงจำ</div>
@@ -96,5 +98,5 @@ document.getElementById('prevMonth').addEventListener('click',()=>{viewMonth--;i
 function resetCalendarNote(){document.getElementById('calendarNote').textContent='เลือกวันในปฏิทินเพื่อดูข้อมูล'}
 })();
 </script>
-<script src="cnr-carousel.js?v=20261016" defer></script>
+<script src="cnr-carousel.js?v=20261016-bubbles" defer></script>
 </body></html>

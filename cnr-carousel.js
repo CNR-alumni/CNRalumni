@@ -9,9 +9,9 @@ const check=url=>new Promise((resolve,reject)=>{const img=new Image();img.onload
 const crest=document.querySelector('.brand-icon img[data-alumni-crest]');
 if(crest){check(crest.dataset.alumniCrest).then(()=>{crest.src=crest.dataset.alumniCrest}).catch(()=>{});}
 Promise.all(filenames.map(check)).then(()=>{
- hero.classList.add('has-carousel');let index=0,timer;const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const show=next=>{index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));slide.querySelector('img').tabIndex=active?0:-1});dots.forEach((dot,i)=>{const active=i===index;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current')})};
- const stop=()=>clearInterval(timer);const start=()=>{stop();if(!reduced)timer=setInterval(()=>show(index+1),4500)};
+ hero.classList.add('has-carousel');let index=0,timer,turn=0;const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const show=next=>{const target=(next+slides.length)%slides.length;if(target!==index){turn+=180;carousel.style.setProperty('--orbit-turn',turn+'deg')}index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));slide.querySelector('img').tabIndex=active?0:-1});dots.forEach((dot,i)=>{const active=i===index;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current')})};
+ const stop=()=>clearInterval(timer);const start=()=>{stop();if(!reduced)timer=setInterval(()=>show(index+1),6000)};
  document.getElementById('heroPrev')?.addEventListener('click',()=>{show(index-1);start()});
  document.getElementById('heroNext')?.addEventListener('click',()=>{show(index+1);start()});
  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start()}));
