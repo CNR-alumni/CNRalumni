@@ -1,0 +1,14 @@
+/* CNR Alumni - crest-led hero update */
+.brand-icon{overflow:hidden;padding:3px;flex-shrink:0}
+.brand-icon img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
+.hero-art{isolation:isolate}
+.art-circle{background:radial-gradient(circle at 34% 23%,rgba(255,255,255,.95),rgba(224,239,254,.88) 42%,rgba(110,163,215,.85) 100%);border:1px solid rgba(255,255,255,.8);box-shadow:0 30px 85px rgba(16,52,94,.20),inset 0 0 0 2px rgba(255,255,255,.55)}
+.art-circle:before{inset:17px;border:2px solid rgba(202,162,88,.55)}
+.art-circle:after{content:"";position:absolute;inset:36px;border-radius:50%;border:1px dashed rgba(33,92,160,.20)}
+.art-crest{position:relative;z-index:2;width:min(70%,325px);aspect-ratio:1;display:grid;place-items:center;padding:15px;border-radius:50%;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.98);box-shadow:0 20px 50px rgba(24,60,101,.16),inset 0 0 0 6px rgba(247,236,210,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.art-crest img{width:100%;height:100%;object-fit:contain;border-radius:50%;display:block}
+.floating-note{z-index:3}
+@media(min-width:701px){.art-crest{animation:crest-arrive .7s ease-out both}}
+@keyframes crest-arrive{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@media(max-width:700px){.art-crest{width:min(68vw,240px);padding:12px}.art-circle:before{inset:13px}.art-circle:after{inset:25px}.note-top{right:0}.note-bottom{left:0}}
+@media(prefers-reduced-motion:reduce){.art-crest{animation:none!important}}
