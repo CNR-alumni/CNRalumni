@@ -1,0 +1,72 @@
+/* CNR Alumni — Blue & Gold Contemporary Glass UI, October 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
+:root{
+ --navy:#102d51;--blue:#215ca0;--ink:#142c4a;--muted:#52647b;--secondary:#52647b;
+ --accent-text:#2369a5;--focus:#bd862c;--cream:#f6f9fe;--line:#dce7f2;
+ --glass:rgba(255,255,255,.72);--shadow:0 18px 48px rgba(15,52,91,.10);
+ --gold:#c59b52;--gold-light:#f5e6c6;
+}
+html{scroll-padding-top:100px}
+body{font-family:'IBM Plex Sans Thai',sans-serif;font-size:16px;line-height:1.75;background:linear-gradient(145deg,#f6f9ff 0%,#fffdf8 52%,#f5f9ff 100%)}
+h1,h2,h3,.brand-name{font-family:'IBM Plex Sans Thai',sans-serif}
+.eyebrow,.brand-caption,.art-monogram,.date-tile strong,.generation strong,.timeline-item .number{font-family:'Plus Jakarta Sans','IBM Plex Sans Thai',sans-serif}
+.eyebrow{color:#a07936;letter-spacing:.16em}
+.site-header{background:rgba(248,251,255,.72);border-bottom:1px solid rgba(255,255,255,.75);-webkit-backdrop-filter:blur(22px) saturate(155%);backdrop-filter:blur(22px) saturate(155%);box-shadow:0 6px 28px rgba(25,62,110,.055)}
+.nav{height:82px}
+.brand-icon{border:1px solid rgba(197,155,82,.38);background:linear-gradient(145deg,#fff,#f6e9ce);box-shadow:0 4px 15px rgba(39,77,120,.09);color:#173a63}
+.brand-name{font-weight:700;letter-spacing:-.035em}
+.brand-caption{font-size:10px;letter-spacing:.09em}
+.nav-links a{transition:color .2s ease}
+.nav-links a:hover,.nav-links a:focus-visible{color:#a47729}
+.nav-join,.button-primary{background:linear-gradient(115deg,#153d6f,#276cac);box-shadow:0 9px 20px rgba(27,77,132,.2);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.nav-join:hover,.button-primary:hover{background:linear-gradient(115deg,#153d6f,#276cac);filter:brightness(1.09);box-shadow:0 15px 28px rgba(27,77,132,.25);transform:translateY(-3px)}
+.button-outline{border:1px solid rgba(59,99,146,.24);background:rgba(255,255,255,.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .2s,transform .2s,box-shadow .2s}
+.button-outline:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(23,59,100,.09)}
+.hero{background:radial-gradient(circle at 76% 36%,rgba(130,182,233,.42),transparent 34%),radial-gradient(circle at 22% 95%,rgba(233,199,134,.23),transparent 38%),linear-gradient(120deg,#f8fbff,#e8f1ff 70%,#fff9ee);border-bottom:1px solid #dde8f6}
+.hero:before{border-color:rgba(255,255,255,.3)}
+.hero-kicker{border-color:rgba(197,155,82,.35);background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#365b7e}
+.hero-kicker .dot{background:#c59b52;box-shadow:0 0 0 4px rgba(197,155,82,.15)}
+.hero h1{font-weight:700;letter-spacing:-.055em;line-height:1.27}
+.hero h1 span[style*="accent-text"]{background:linear-gradient(100deg,#1e5e9f,#578cae);color:transparent!important;-webkit-background-clip:text;background-clip:text}
+.hero-copy{font-size:17px;line-height:1.9}
+.art-circle{background:linear-gradient(145deg,#8fbde2 0%,#316aab 48%,#12355e 100%);box-shadow:0 30px 85px rgba(16,52,94,.29),inset 0 0 0 2px rgba(255,255,255,.25)}
+.art-circle:before{border-color:rgba(255,232,175,.63)}
+.art-monogram{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.14em;text-shadow:0 8px 28px rgba(8,40,76,.25)}
+.floating-note,.quick-card,.event-list,.calendar-card,.generation,.generation-result{background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.92);-webkit-backdrop-filter:blur(18px) saturate(130%);backdrop-filter:blur(18px) saturate(130%);box-shadow:0 14px 42px rgba(22,64,107,.09)}
+.floating-note{box-shadow:0 14px 38px rgba(22,64,107,.15)}
+.quick-card{border-radius:22px;transition:transform .26s ease,box-shadow .26s ease,border-color .26s}
+.quick-card:hover{transform:translateY(-6px);box-shadow:0 22px 38px rgba(22,64,107,.15);border-color:rgba(197,155,82,.4)}
+.quick-icon{background:linear-gradient(145deg,#e3effc,#fbf3e4)}
+.arrow{color:#b48a47}
+.section-heading h2{font-weight:700;letter-spacing:-.035em}
+.story{isolation:isolate;transition:transform .28s ease,box-shadow .28s ease}
+.story:hover{transform:translateY(-5px);box-shadow:0 20px 38px rgba(20,56,93,.19)}
+.story:before{background:linear-gradient(0deg,rgba(12,37,68,.94),rgba(18,49,83,.1) 80%)}
+.story-one{background:radial-gradient(circle at 72% 30%,#ebd6aa 0 12%,transparent 13%),linear-gradient(135deg,#1e4d83,#8eb9df)}
+.story-two{background:radial-gradient(circle at 80% 24%,#e2eef9 0 15%,transparent 16%),linear-gradient(140deg,#356ca2,#a6cce4)}
+.story-three{background:radial-gradient(circle at 20% 30%,#d9b776 0 10%,transparent 11%),linear-gradient(140deg,#254e76,#8fb4bb)}
+.story-tag{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.events-zone{background:linear-gradient(125deg,#eaf3ff,#f4f8ff 60%,#fbf6ed)}
+.date-tile{background:linear-gradient(145deg,#e2efff,#fff3dc);color:#174c7e}
+.event-item .pill{background:#fbefd8;color:#70511e}
+.calendar button.has-event{background:#c7e0f6;color:#153d6b}
+.calendar button.selected{background:#205b96;color:#fff}
+.generation{transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
+.generation:hover,.generation.active{background:linear-gradient(140deg,#173d6b,#3274af);color:white;box-shadow:0 12px 28px rgba(23,66,113,.2)}
+.generation-result{background:rgba(240,247,255,.75)}
+.timeline-item{border-top:2px solid #d5b478}
+.cta{background:radial-gradient(circle at 90% 15%,rgba(208,175,111,.23),transparent 34%),linear-gradient(115deg,#102b50,#20598f);box-shadow:0 25px 60px rgba(19,58,104,.18)}
+.cta .eyebrow{color:#f1d8a5!important}
+footer{background:linear-gradient(120deg,#0d2543,#183b62)}
+:focus-visible{outline:3px solid #bd862c;outline-offset:3px}
+@media(max-width:950px){.hero h1{font-size:clamp(39px,5vw,65px)}}
+@media(max-width:700px){
+ body{font-size:15px}.nav{height:69px}.nav-links{background:rgba(248,251,255,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+ .hero-grid{padding:49px 0 70px}.hero h1{font-size:clamp(39px,10vw,56px)}.hero-copy{font-size:15px}
+ .hero-art{height:315px}.art-circle{width:min(78vw,285px)}.art-monogram{font-size:clamp(88px,24vw,112px)}
+ .floating-note{max-width:52%;font-size:11px}.quick-links{gap:12px}.quick-card{min-height:88px}
+ .section{padding:60px 0}.section-heading h2{font-size:clamp(26px,7vw,34px)}
+ .event-list,.calendar-card{padding:19px}.cta{border-radius:22px;padding:34px 25px}
+}
+@media(max-width:390px){.brand-caption{font-size:9px}.hero-kicker{font-size:10px}.floating-note{padding:9px}.generation{padding:22px 5px}.generation strong{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
