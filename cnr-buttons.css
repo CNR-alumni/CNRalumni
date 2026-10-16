@@ -1,0 +1,41 @@
+/* Shared glass surface: used by the static site and React LiquidButton. */
+.liquid-glass-button{
+ --liquid-tint:rgba(255,255,255,.16);
+ --liquid-highlight:rgba(255,255,255,.92);
+ position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+ border:1px solid rgba(255,255,255,.62);border-radius:999px;background:transparent;color:var(--liquid-text,var(--primary,var(--navy,#102d51)));
+ min-height:44px;text-decoration:none;cursor:pointer;
+ box-shadow:0 2px 6px rgba(12,42,76,.08),0 8px 24px rgba(25,62,110,.08),inset 2px 2px 1px -1px rgba(255,255,255,.95),inset -2px -2px 1px -1px rgba(40,83,123,.23),inset 0 0 6px 2px rgba(255,255,255,.2);
+ transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+ -webkit-tap-highlight-color:transparent;
+}
+.liquid-glass-button::before{
+ content:"";position:absolute;inset:0;z-index:-2;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(135deg,rgba(255,255,255,.45),var(--liquid-tint) 48%,rgba(180,216,247,.13));
+ -webkit-backdrop-filter:blur(12px) saturate(155%);backdrop-filter:blur(12px) saturate(155%);
+}
+.liquid-glass-button::after{
+ content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(165deg,var(--liquid-highlight),transparent 38%,transparent 64%,rgba(255,255,255,.55));
+ opacity:.52;
+ box-shadow:inset 0 1px 1px rgba(255,255,255,.9),inset 0 -1px 1px rgba(255,255,255,.4);
+}
+@supports(backdrop-filter:url("#glass")){
+ .liquid-glass-button::before{backdrop-filter:var(--liquid-filter,blur(12px)) saturate(155%)}
+}
+@media(hover:hover){
+ .liquid-glass-button:hover{background:transparent;transform:translateY(-2px);filter:brightness(1.04);box-shadow:0 8px 22px rgba(25,62,110,.16),inset 2px 2px 1px -1px white,inset -2px -2px 1px -1px rgba(40,83,123,.2)}
+}
+.liquid-glass-button:active{transform:translateY(1px) scale(.98)}
+.liquid-glass-button:focus-visible{outline:3px solid var(--focus,#bd862c);outline-offset:4px}
+.liquid-glass-button:disabled,.liquid-glass-button[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.liquid-glass-button--destructive{--liquid-tint:var(--destructive,#a32937);color:var(--destructive-foreground,#fff)}
+.liquid-glass-button--secondary{--liquid-tint:var(--secondary,#e4edf6)}
+.cta .liquid-glass-button{background:transparent;color:#fff;--liquid-tint:rgba(255,255,255,.1);--liquid-highlight:rgba(255,255,255,.6);border-color:rgba(255,255,255,.5)}
+.menu-toggle.liquid-glass-button{display:none;border-radius:20px;padding:10px 16px}
+@media(max-width:700px){.menu-toggle.liquid-glass-button{display:inline-flex}.nav-join.liquid-glass-button{display:none}}
+@supports not (backdrop-filter:blur(1px)){
+ .liquid-glass-button::before{background:#eaf2fb}
+ .cta .liquid-glass-button::before{background:#285782}
+}
+@media(prefers-reduced-motion:reduce){.liquid-glass-button{transition:none}.liquid-glass-button:hover,.liquid-glass-button:active{transform:none}}

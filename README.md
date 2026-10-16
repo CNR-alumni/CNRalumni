@@ -2,7 +2,9 @@
 
 เว็บไซต์สมาคมศิษย์เก่าโรงเรียนชิโนรสวิทยาลัย
 
-Static HTML/CSS/JavaScript. No dependencies or build step.
+Published site: static HTML/CSS/JavaScript, with no build step.
+
+Optional React/TypeScript UI components use Tailwind v4 and shadcn-compatible aliases. See [Liquid Glass setup](docs/liquid-glass-setup.md). Run `npm ci`, `npm run typecheck`, and `npm run build:ui` to validate the component kit.
 
 - Main source: `index.html`
 - Images: `assets/`

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "../cnr-buttons.css";
+@source "../components";
+@source "../examples";
+
+:root {
+ --background:#f6f9fe;--foreground:#142c4a;--primary:#215ca0;--primary-foreground:#fff;
+ --secondary:#e4edf6;--secondary-foreground:#173d6b;--muted:#edf2f8;--muted-foreground:#52647b;
+ --accent:#e6eff9;--accent-foreground:#102d51;--destructive:#a32937;--destructive-foreground:#fff;
+ --border:#dce7f2;--input:#c7d6e8;--ring:#bd862c;--radius:1rem;
+}
+.dark {
+ --background:#0d2543;--foreground:#eef6ff;--primary:#a8d1ff;--primary-foreground:#102d51;
+ --secondary:#25496f;--secondary-foreground:#eef6ff;--muted:#183b62;--muted-foreground:#b4c8de;
+ --accent:#25496f;--accent-foreground:#eef6ff;--destructive:#b73343;--destructive-foreground:#fff;
+ --border:#416286;--input:#416286;--ring:#e5c78d;
+}
+@theme inline {
+ --color-background:var(--background);--color-foreground:var(--foreground);
+ --color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);
+ --color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);
+ --color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);
+ --color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);
+ --color-destructive:var(--destructive);--color-destructive-foreground:var(--destructive-foreground);
+ --color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);
+ --radius-md:var(--radius);
+}
+@layer components {
+ .metal-button{--metal-top:#b9b9b9;--metal-bottom:#787878;border:2px solid #fff8;background:linear-gradient(var(--metal-top),var(--metal-bottom));color:#fff;box-shadow:0 3px 8px #0002,inset 0 1px 1px #fff9;text-shadow:0 -1px #0005;transition:transform 250ms,filter 250ms}
+ .metal-button[data-metal="primary"]{--metal-top:var(--primary);--metal-bottom:var(--primary-foreground);color:var(--foreground)}
+ .metal-button[data-metal="success"]{--metal-top:#9adbc8;--metal-bottom:#3e8f7c}
+ .metal-button[data-metal="error"]{--metal-top:#f08d8f;--metal-bottom:#a45253}
+ .metal-button[data-metal="gold"]{--metal-top:#ffeba1;--metal-bottom:#9b873f}
+ .metal-button[data-metal="bronze"]{--metal-top:#ffe3c9;--metal-bottom:#a36f3d}
+ .metal-button:active{transform:translateY(2px) scale(.98)}
+ @media(hover:hover){.metal-button:hover{filter:brightness(1.08)}}
+}
+@media(prefers-reduced-motion:reduce){.metal-button{transition:none}.metal-button:active{transform:none}}
